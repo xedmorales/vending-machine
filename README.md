@@ -15,11 +15,6 @@ npm install
 npm run serve
 ```
 
-### Command for running the app in production (minified)
-```
-npm run serve
-```
-
 ### Default URL to access the app (Setup Sample)
 ```
 http://localhost:8080/
