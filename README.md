@@ -5,17 +5,17 @@
 v.18.16.0
 ```
 
-## Node Version
-```
-v.18.16.0
-```
-
 ## Make sure to install the dependencies
 ```
 npm install
 ```
 
-### Command for running the app
+### Command for running the app in development
+```
+npm run serve
+```
+
+### Command for running the app in production (minified)
 ```
 npm run serve
 ```
@@ -24,7 +24,6 @@ npm run serve
 ```
 http://localhost:8080/
 ```
-
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
