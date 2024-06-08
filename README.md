@@ -1,19 +1,30 @@
 # vending-machine
 
-## Project setup
+## Node Version
+```
+v.18.16.0
+```
+
+## Node Version
+```
+v.18.16.0
+```
+
+## Make sure to install the dependencies
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Command for running the app
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Default URL to access the app (Setup Sample)
 ```
-npm run build
+http://localhost:8080/
 ```
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

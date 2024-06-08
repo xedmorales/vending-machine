@@ -8,13 +8,13 @@
       </div>
       <div class="item-form" v-if="noChange">
         <div class="form-group">
-          <label class="input-label"> Bill </label><br>
+          <label class="input-label"> BILL</label><br>
           <input type="number" class="form-control" v-model="billValue" id="billValue"><br>
         </div>
         <div class="form-group">
-          <label class="input-label"> Owed </label><br>
+          <label class="input-label"> OWED AMOUNT </label><br>
           <input type="number" class="form-control" v-model="owedValue" id="owedValue"><br>
-          <button class="btn-primary" @click = "getChange(billValue,owedValue)"> Get Change </button>
+          <button class="btn-primary" @click = "getChange(billValue,owedValue)"> Get Change and Denomination Counterpart </button>
         </div>
         <div class="desc-text warning" v-if="invalidValues">Invalid value for Bill and Owed Amounts</div>
       </div>
@@ -29,6 +29,7 @@
                 </div>
             </li>
           </ul>
+          <div class="desc-text warning" v-if="zeroValue">No change Breakdown since amount is PHP 0</div>
         </div>
         <button class="btn-secondary" @click = "resetValues"> Return to Computation Area </button>
       </div>
@@ -48,6 +49,7 @@
         storedChange :0,
         noChange:true,
         invalidValues : false,
+        zeroValue : false
       }
     },
     methods:{
@@ -58,6 +60,7 @@
         let changeBreakdown = [];
   
         this.invalidValues = owed < 0 || owed > 1000 || bill < owed ? true : false;
+        this.zeroValue = this.storedChange == 0 ? true : false;
   
         if(!this.invalidValues){
   
@@ -83,7 +86,7 @@
         this.noChange = !this.noChange;
         this.owedValue = 0;
         this.billValue = 0;
-      }
+      },
     }
   }
   </script>
@@ -160,12 +163,13 @@
   
   /** holder of input and buttons */
   .item-form{
-    margin-top:150px;
+    margin-top:120px;
     padding:70px !important;
     background-color: #fbfbfb;
     border-radius: 5px !important;
     width:700px !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    height:500px;
   }
   
   /** classes for inputs and buttons  */
@@ -259,6 +263,7 @@
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     padding:10px;
     border-radius: 5px !important;
+    margin: 5px;
   }
   </style>
   
