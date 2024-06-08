@@ -30,6 +30,7 @@
             </li>
           </ul>
           <div class="desc-text warning" v-if="zeroValue">No change Breakdown since amount is PHP 0</div>
+          <div class="desc-text warning" v-if="negativeValue">No change Breakdown since amount is less than PHP 0</div>
         </div>
         <button class="btn-secondary" @click = "resetValues"> Return to Computation Area </button>
       </div>
@@ -49,6 +50,7 @@
         storedChange :0,
         noChange:true,
         invalidValues : false,
+        negativeValue : false,
         zeroValue : false
       }
     },
@@ -59,7 +61,8 @@
         this.storedChange = change;
         let changeBreakdown = [];
   
-        this.invalidValues = owed < 0 || owed > 1000 || bill < owed ? true : false;
+        this.invalidValues = owed < 0 || owed > 1000;
+        this.negativeValue = bill < owed ? true : false;
         this.zeroValue = this.storedChange == 0 ? true : false;
   
         if(!this.invalidValues){
